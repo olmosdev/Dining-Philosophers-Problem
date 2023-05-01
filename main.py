@@ -89,6 +89,7 @@ class MainWidow(Tk, CenterWidgetMixin):
         self.fifthPhilosopherStatus.grid(row=0, column=1)
         self.fifthPhilosopherStatus.config(background="orange")
 
+    # To execute program logic
     def Execute(self):
         # Creating a chair
         chair = Chair()
@@ -106,7 +107,7 @@ class MainWidow(Tk, CenterWidgetMixin):
         for x in range(5):
             philosophers[x].start()
 
-# Class related to eating utensil lie a fork
+# Class related to eating utensil like a fork
 class Chopstick:
     chopstickId: int
     lock = threading.Condition()
@@ -154,6 +155,7 @@ class Chair:
             #time.sleep(1)
             self.lock.notify()
 
+# Class representing a philosopher and his thread of execution
 class Philosopher(threading.Thread):
     philosopherId: int
     leftChopstick: Chopstick
